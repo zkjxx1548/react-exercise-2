@@ -1,6 +1,7 @@
 import React from 'react';
 import fetchData from '../async/myfetch.js';
 import './iphone.css';
+import AddToCart from './AddToCart.js';
 
 class Huawei extends React.Component {
   constructor(props) {
@@ -20,10 +21,7 @@ class Huawei extends React.Component {
     return phoneArray.map(element => (<div className="iphone">
       <h3>{element.name}</h3>
       <img src="../assets/product_image_placeholder.png" />
-      <div className="buy">
-        <span>{element.price}</span>
-        <button>add to cart</button>
-      </div>
+      <AddToCart product={element} onCart={this.props.onCart}/>
     </div>));
   }
 }
