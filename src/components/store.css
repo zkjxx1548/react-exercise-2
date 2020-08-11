@@ -1,0 +1,12 @@
+.store {
+  background-color: rgb(99, 99, 235);
+  color: white;
+  padding: 15px;
+  position: relative;
+}
+
+.store span {
+  position: absolute;
+  right: 30px;
+  bottom: 22px;
+}

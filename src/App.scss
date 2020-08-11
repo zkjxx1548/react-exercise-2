@@ -5,3 +5,12 @@
   margin: 80px auto $base-margin auto;
   background-color: $white;
 }
+
+.app h2 {
+  padding: 30px 20px;
+}
+
+.iphones {
+  display: flex;
+  justify-content: space-around;
+}

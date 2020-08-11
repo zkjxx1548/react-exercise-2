@@ -1,0 +1,27 @@
+.iphone {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.iphone h3 {
+  padding-bottom: 20px;
+}
+
+.iphone img {
+  width: 150px;
+  height: 150px;
+  
+}
+
+.buy {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.buy button {
+  color: white;
+  background-color: blue;
+  border: 0;
+}
