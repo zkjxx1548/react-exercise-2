@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import './App.scss';
 import Store from './components/store/Store.js';
-import Iphone from './components/Iphone.js';
-import Huawei from './components/Huawei';
+import Iphone from './components/iphone/Iphone.js';
+import Huawei from './components/huawei/Huawei';
+import fetchData from './async/myfetch';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0,
-    };
-  }
+  state = {
+    count: 0,
+    iphone: [],
+    huawei: [],
+  };
 
   getCount = () => {
     this.setState({
@@ -22,17 +22,19 @@ class App extends Component {
     return (
       <main className="app">
         <Store count={this.state.count} />
-        <h2>iPhone</h2>
-        <div className="iphones">
-          <Iphone onCart={this.getCount} />
-        </div>
-        <h2>HUAWEI</h2>
-        <div className="iphones">
-          <Huawei onCart={this.getCount} />
-        </div>
+        <Iphone products={this.state.iphone} onCart={this.getCount} />
+        <Huawei products={this.state.huawei} onCart={this.getCount} />
       </main>
     );
   }
-}
 
+  componentDidMount() {
+    fetchData().then((res) => {
+      this.setState({
+        iphone: res.filter((element) => element.category === 'iPhone'),
+        huawei: res.filter((element) => element.category === 'HUAWEI'),
+      });
+    });
+  }
+}
 export default App;
